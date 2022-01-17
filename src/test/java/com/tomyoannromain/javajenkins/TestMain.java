@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static com.tomyoannromain.javajenkins.Main.addHarryPotter;
-import static com.tomyoannromain.javajenkins.Main.createShoppingCart;
+import static com.tomyoannromain.javajenkins.Main.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestMain {
@@ -13,7 +12,11 @@ public class TestMain {
     @Test
     public void testCreateArrayListOfInteger(){
         ArrayList<Integer> shoppingCart = createShoppingCart();
-        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        fillShoppingCart(shoppingCart);
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for(int i=0;i<5;i++){
+            arrayList.add(0,0);
+        }
         assertEquals(shoppingCart,arrayList);
     }
 

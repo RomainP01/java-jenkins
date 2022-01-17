@@ -20,6 +20,12 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>net.sourceforge.pmd</groupId>
+            <artifactId>pmd</artifactId>
+            <version>6.41.0</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <properties>
