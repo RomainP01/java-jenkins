@@ -15,6 +15,12 @@ pipeline {
           }
         }
 
+        stage('test') {
+          steps {
+            sh './mvnw test'
+          }
+        }
+
       }
     }
 
