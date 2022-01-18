@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven:3.8.4-eclipse-temurin-16-alpine'
-    }
-
-  }
+  agent any
   stages {
     stage('mvnw check') {
       steps {
