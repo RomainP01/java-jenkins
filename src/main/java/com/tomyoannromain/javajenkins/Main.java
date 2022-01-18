@@ -6,9 +6,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Integer> shoppingCart = createShoppingCart();
-        fillShoppingCart(shoppingCart);
-        addHarryPotter(5,3,shoppingCart);
+        ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.addBookToShoppingCart(4,2);
+        shoppingCart.addBookToShoppingCart(3,2);
         System.out.println(shoppingCart);
     }
 
