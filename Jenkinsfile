@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('mvnw check') {
+    stage('check') {
       parallel {
-        stage('mvnw check') {
+        stage('pmd') {
           steps {
             sh './mvnw pmd:check'
           }
@@ -11,7 +11,7 @@ pipeline {
 
         stage('checkstyle') {
           steps {
-            sh './mvn checkstyle:check'
+            sh './mvnw checkstyle:check'
           }
         }
 
