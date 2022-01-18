@@ -39,7 +39,7 @@ public class TestMain {
         shoppingCart.addBookToShoppingCart(2,1);
         shoppingCart.addBookToShoppingCart(3,1);
         Checkout checkout = new Checkout();
-        assertEquals(3, checkout.checkHowManyDifferentsBooks(shoppingCart));
+        assertEquals(3, checkout.checkHowManyDifferentBooks(shoppingCart));
     }
 
 }

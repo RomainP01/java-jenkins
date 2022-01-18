@@ -7,49 +7,60 @@ import java.util.Arrays;
 
 @Data
 public class ShoppingCart {
-    private int harryPotter1 =0;
-    private int harryPotter2 =0;
-    private int harryPotter3 =0;
-    private int harryPotter4 =0;
-    private int harryPotter5 =0;
-    private ArrayList<Integer> shoppingCart = new ArrayList<>(Arrays.asList(harryPotter1, harryPotter2,harryPotter3,harryPotter4,harryPotter5));;
+    private int harryPotter1 = 0;
+    private int harryPotter2 = 0;
+    private int harryPotter3 = 0;
+    private int harryPotter4 = 0;
+    private int harryPotter5 = 0;
+    private ArrayList<Integer> shoppingCart = new ArrayList<>(Arrays.asList(harryPotter1, harryPotter2, harryPotter3, harryPotter4, harryPotter5));
 
 
-    public void addBookToShoppingCart(int harryPottersVolume, int numberOfBooks){
-        switch(harryPottersVolume){
+    public void addBookToShoppingCart(int harryPottersVolume, int numberOfBooks) {
+        setSettersHarryPottersBook(harryPottersVolume, getGettersHarryPottersBooks(harryPottersVolume) + numberOfBooks);
+        shoppingCart.remove(harryPottersVolume - 1);
+        shoppingCart.add(harryPottersVolume - 1, getGettersHarryPottersBooks(harryPottersVolume));
+    }
+
+
+    public int getGettersHarryPottersBooks(int number) {
+        switch (number) {
             case 1:
-                setHarryPotter1(getHarryPotter1()+numberOfBooks);
-                shoppingCart.remove(0);
-                shoppingCart.add(0,getHarryPotter1());
-                break;
-
+                return getHarryPotter1();
             case 2:
-                setHarryPotter2(getHarryPotter2()+harryPottersVolume);
-                shoppingCart.remove(1);
-                shoppingCart.add(1,getHarryPotter2());
-                break;
-
+                return getHarryPotter2();
             case 3:
-                setHarryPotter3(getHarryPotter3()+harryPottersVolume);
-                shoppingCart.remove(2);
-                shoppingCart.add(2,getHarryPotter3());
-                break;
+                return getHarryPotter3();
             case 4:
-                setHarryPotter4(getHarryPotter4()+harryPottersVolume);
-                shoppingCart.remove(3);
-                shoppingCart.add(3,getHarryPotter4());
-                break;
-
+                return getHarryPotter4();
             case 5:
-                setHarryPotter5(getHarryPotter5()+harryPottersVolume);
-                shoppingCart.remove(4);
-                shoppingCart.add(4,getHarryPotter5());
-                break;
+                return getHarryPotter5();
             default:
-                System.out.println("Choix incorrect");
-                break;
+                return 0;
         }
     }
+
+    public void setSettersHarryPottersBook(int index, int harryPotter) {
+        switch (index) {
+            case 1:
+                this.harryPotter1 = harryPotter;
+                break;
+            case 2:
+                this.harryPotter2 = harryPotter;
+                break;
+            case 3:
+                this.harryPotter3 = harryPotter;
+                break;
+            case 4:
+                this.harryPotter4 = harryPotter;
+                break;
+            case 5:
+                this.harryPotter5 = harryPotter;
+                break;
+            default:
+                System.out.println("mauvais choix");
+        }
+    }
+
 
     @Override
     public String toString() {

@@ -10,7 +10,7 @@ public class Main {
         shoppingCart.addBookToShoppingCart(4,2);
         shoppingCart.addBookToShoppingCart(3,2);
         Checkout checkout = new Checkout();
-        System.out.println(checkout.checkHowManyDifferentsBooks(shoppingCart));
+        System.out.println(checkout.checkHowManyDifferentBooks(shoppingCart));
         System.out.println(shoppingCart);
     }
 }
