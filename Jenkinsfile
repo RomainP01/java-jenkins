@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('mvnw check') {
       steps {
-        sh 'pwd'
+        sh './nvmw pwd:check'
       }
     }
 
