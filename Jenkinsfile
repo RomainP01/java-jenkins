@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('mvnw check') {
       steps {
-        sh './mvnw pwd:check'
+        sh './mvnw pmd:check'
       }
     }
 
