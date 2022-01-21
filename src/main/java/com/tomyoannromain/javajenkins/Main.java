@@ -6,12 +6,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addBookToShoppingCart(1,2);
-        shoppingCart.addBookToShoppingCart(2,2);
-        shoppingCart.addBookToShoppingCart(3,4);
+        List<Integer> shoppingCart = new ArrayList<>();
+        shoppingCart.add(1);
+        shoppingCart.add(1);
+        shoppingCart.add(1);
+        shoppingCart.add(1);
         Checkout checkout = new Checkout();
-        List<BooksLot> booksLotList = checkout.getBestPrice(shoppingCart);
-        System.out.println(booksLotList);
+        System.out.println(checkout.checkHowManyDifferentBooks(shoppingCart));
     }
 }
