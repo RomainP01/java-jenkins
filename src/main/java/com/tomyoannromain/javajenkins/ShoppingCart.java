@@ -22,6 +22,8 @@ public class ShoppingCart {
     }
 
 
+
+
     public int getGettersHarryPottersBooks(int number) {
         switch (number) {
             case 1:
@@ -59,6 +61,35 @@ public class ShoppingCart {
             default:
                 System.out.println("mauvais choix");
         }
+    }
+
+    public void removeBooks(int i) {
+        int j=0;
+        while (j<i){
+            for (int k=0;k<5;k++){
+                if (getGettersHarryPottersBooks(k+1) >= 1) {
+                    setSettersHarryPottersBook(k+1, getGettersHarryPottersBooks(k+1) - 1);
+                    shoppingCart.remove(k);
+                    shoppingCart.add(k , getGettersHarryPottersBooks(k+1));
+                    j+=1;
+                }
+            }
+
+        }
+    }
+
+    public boolean isEmpty(){
+        boolean isEmpty = false;
+        int numOfNullBooks = 0;
+        for (int i = 0; i<5;i++){
+            if (getGettersHarryPottersBooks(i)==0){
+                numOfNullBooks+=1;
+            }
+        }
+        if (numOfNullBooks == shoppingCart.size()){
+            isEmpty = true;
+        }
+        return isEmpty;
     }
 
 

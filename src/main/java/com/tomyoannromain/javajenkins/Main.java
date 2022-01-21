@@ -7,10 +7,11 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addBookToShoppingCart(4,2);
-        shoppingCart.addBookToShoppingCart(3,2);
+        shoppingCart.addBookToShoppingCart(1,2);
+        shoppingCart.addBookToShoppingCart(2,2);
+        shoppingCart.addBookToShoppingCart(3,4);
         Checkout checkout = new Checkout();
-        System.out.println(checkout.checkHowManyDifferentBooks(shoppingCart));
-        System.out.println(shoppingCart);
+        List<BooksLot> booksLotList = checkout.getBestPrice(shoppingCart);
+        System.out.println(booksLotList);
     }
 }

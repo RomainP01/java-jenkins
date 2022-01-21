@@ -6,6 +6,7 @@ import lombok.Data;
 public class BooksLot {
     private int numOfBooks;
     private int discount;
+    private static int PRICE_ONE_BOOK = 8;
 
     public BooksLot(int numOfBooks){
         this.numOfBooks = numOfBooks;
