@@ -9,9 +9,13 @@ public class Main {
         List<Integer> shoppingCart = new ArrayList<>();
         shoppingCart.add(1);
         shoppingCart.add(1);
-        shoppingCart.add(1);
-        shoppingCart.add(1);
+        shoppingCart.add(2);
+        shoppingCart.add(2);
+        shoppingCart.add(3);
+        shoppingCart.add(3);
+        shoppingCart.add(4);
+        shoppingCart.add(5);
         Checkout checkout = new Checkout();
-        System.out.println(checkout.checkHowManyDifferentBooks(shoppingCart));
+        System.out.println(checkout.getBestBooksLotList(shoppingCart));
     }
 }

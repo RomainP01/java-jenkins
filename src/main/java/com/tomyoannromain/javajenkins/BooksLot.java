@@ -8,9 +8,9 @@ public class BooksLot {
     private double discountFactor;
     private int PRICE_ONE_BOOK = 8;
 
-    public BooksLot(int numOfBooks){
+    public BooksLot(int numOfBooks) {
         this.numOfBooks = numOfBooks;
-        switch (numOfBooks){
+        switch (numOfBooks) {
             case 2:
                 this.discountFactor = 0.95;
                 break;
@@ -29,14 +29,7 @@ public class BooksLot {
     }
 
     public double getPrice() {
-        return this.getNumOfBooks()*this.getPRICE_ONE_BOOK()* this.getDiscountFactor();
+        return this.getNumOfBooks() * this.getPRICE_ONE_BOOK() * this.getDiscountFactor();
     }
 
-    @Override
-    public String toString() {
-        return "BooksLot{" +
-                "numOfBooks=" + numOfBooks +
-                ", discount=" + discountFactor +
-                '}';
-    }
 }

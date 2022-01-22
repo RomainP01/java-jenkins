@@ -16,29 +16,77 @@ public class Checkout {
         return numbersOfBooksDifferent.size();
     }
 
-    public List<List<BooksLot>> createAllPossibleListOfBooksLot(ShoppingCart shoppingCart){
-        List<List<BooksLot>> allPossibleListOfBooksLot = new ArrayList<>();
-
-        return allPossibleListOfBooksLot;
+    public List<Integer> cloneShoppingCart(List<Integer> shoppingCart){
+        return new ArrayList<>(shoppingCart);
     }
 
-    public List<BooksLot> getAListOfBooksLot(ShoppingCart shoppingCart) {
+    public BooksLot createABooksLot(List<Integer> shoppingCart, int maxBooksInBooksLot) {
+        List<Integer> booksToBeRemove = new ArrayList<>();
+        while (booksToBeRemove.size() < maxBooksInBooksLot) {
+            for (int i = 0; i < shoppingCart.size(); i++) {
+                if (booksToBeRemove.size()>=maxBooksInBooksLot){
+                    break;
+                }
+                if (!booksToBeRemove.contains(shoppingCart.get(i))) {
+                    booksToBeRemove.add(shoppingCart.get(i));
+                    shoppingCart.remove(i);
+                }
+            }
+        }
+        return new BooksLot(maxBooksInBooksLot);
+    }
+
+    public List<BooksLot> createAListOfBookslot(List<Integer> shoppingCart, int maxSize) {
         List<BooksLot> booksLotList = new ArrayList<>();
-        while (!shoppingCart.isEmpty()) {
-            int i = 0;
-            BooksLot booksLot = new BooksLot(i);
-            shoppingCart.removeBooks(i);
-            booksLotList.add(booksLot);
+        List<Integer> shoppingCartCopy = cloneShoppingCart(shoppingCart);
+        while (!shoppingCartCopy.isEmpty()) {
+            if (maxSize <= checkHowManyDifferentBooks(shoppingCartCopy)) {
+                booksLotList.add(createABooksLot(shoppingCartCopy, maxSize));
+            } else {
+                maxSize -= 1;
+            }
         }
         return booksLotList;
     }
 
-    public double calculateTotalPrice(List<BooksLot> booksLotList){
+    public List<List<BooksLot>> createAllPossibleListOfBooksLot(List<Integer> shoppingCart) {
+        List<List<BooksLot>> allPossibleListOfBooksLot = new ArrayList<>();
+        for (int i =checkHowManyDifferentBooks(shoppingCart);i>=1;i--){
+            allPossibleListOfBooksLot.add(createAListOfBookslot(shoppingCart,i));
+        }
+        return allPossibleListOfBooksLot;
+    }
+
+    public List<BooksLot> selectBestBooksLot(List<List<BooksLot>> allBooksLot) {
+        List<BooksLot> bestBooksLot = null;
+        double bestPrice = 0;
+
+        for (List<BooksLot> booksLotList:allBooksLot) {
+            double priceOfBooksLotList = calculateTotalPrice(booksLotList);
+            if(bestPrice == 0){
+                bestPrice=priceOfBooksLotList;
+                bestBooksLot = booksLotList;
+            }
+            else if (bestPrice > priceOfBooksLotList) {
+                bestBooksLot = booksLotList;
+                bestPrice = priceOfBooksLotList;
+            }
+        }
+
+        return bestBooksLot;
+    }
+
+
+    public double calculateTotalPrice(List<BooksLot> booksLotList) {
         double totalPrice = 0;
-        for (BooksLot booksLot:booksLotList){
-            totalPrice+=booksLot.getPrice();
+        for (BooksLot booksLot : booksLotList) {
+            totalPrice += booksLot.getPrice();
         }
         return totalPrice;
+    }
+
+    public List<BooksLot> getBestBooksLotList(List<Integer> shoppingCart){
+        return selectBestBooksLot(createAllPossibleListOfBooksLot(shoppingCart));
     }
 
 
