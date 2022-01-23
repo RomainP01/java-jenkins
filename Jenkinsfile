@@ -15,9 +15,9 @@ pipeline {
           }
         }
 
-        stage('test') {
+        stage('nexus') {
           steps {
-            sh './mvnw test'
+            sh './mvnw clean deploy'
           }
         }
 
