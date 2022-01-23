@@ -15,12 +15,6 @@ pipeline {
           }
         }
 
-        stage('nexus') {
-          steps {
-            sh './mvnw clean deploy'
-          }
-        }
-
       }
     }
 
@@ -36,6 +30,12 @@ pipeline {
   -Dsonar.projectKey=JenkinsTP \\
   -Dsonar.host.url=http://sonarqube:9000 \\
   -Dsonar.login=a7f4a2a8334b74aa215f39b816af97290f55026b'''
+      }
+    }
+
+    stage('nexus deploy') {
+      steps {
+        sh './mvnw clean deploy'
       }
     }
 
