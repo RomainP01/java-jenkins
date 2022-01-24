@@ -6,25 +6,16 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Integer> shoppingCart = createShoppingCart();
-        fillShoppingCart(shoppingCart);
-        addHarryPotter(5,3,shoppingCart);
-        System.out.println(shoppingCart);
+        List<Integer> shoppingCart = new ArrayList<>();
+        shoppingCart.add(1);
+        shoppingCart.add(1);
+        shoppingCart.add(2);
+        shoppingCart.add(2);
+        shoppingCart.add(3);
+        shoppingCart.add(3);
+        shoppingCart.add(4);
+        shoppingCart.add(5);
+        Checkout checkout = new Checkout();
+        System.out.println(checkout.getBestBooksLotList(shoppingCart));
     }
-
-    public static ArrayList<Integer> createShoppingCart(){
-        return new ArrayList<Integer>();
-    }
-
-    public static ArrayList<Integer> fillShoppingCart(ArrayList<Integer> shoppingCart){
-        for(int i=0;i<5;i++){
-            shoppingCart.add(0,0);
-        }
-        return shoppingCart;
-    }
-
-    public static void addHarryPotter(int numberOfBooks, int harryPotterVolume, ArrayList<Integer> shoppingCart){
-        shoppingCart.add(harryPotterVolume-1, numberOfBooks);
-    }
-
 }
