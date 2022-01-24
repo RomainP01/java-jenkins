@@ -2,12 +2,9 @@ package com.tomyoannromain.javajenkins;
 
 import org.junit.jupiter.api.Test;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import static com.tomyoannromain.javajenkins.Main.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestMain {
