@@ -43,7 +43,7 @@ public class TestMain {
     @Test
     public void testBooksLotWith1HasTheSamePriceAsWithoutDiscount() {
         BooksLot booksLot = new BooksLot(1);
-        assertEquals(booksLot.getPRICE_ONE_BOOK(), booksLot.getPrice());
+        assertEquals(booksLot.getPriceOfOneBook(), booksLot.getPrice());
     }
 
     @Test
