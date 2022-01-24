@@ -3,7 +3,14 @@ package com.tomyoannromain.javajenkins;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 public class Main {
+
+    /**
+     * @param args arguments
+     */
     public static void main(String[] args) {
         List<Integer> shoppingCart = new ArrayList<>();
         shoppingCart.add(1);

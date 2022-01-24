@@ -2,14 +2,31 @@ package com.tomyoannromain.javajenkins;
 
 import lombok.Data;
 
+
+/**
+ *
+ */
 @Data
 public class BooksLot {
-    private int numOfBooks;
+    /**
+     *
+     */
+    private final int numOfBooks;
+    /**
+     *
+     */
     private double discountFactor;
-    private int PRICE_ONE_BOOK = 8;
+    /**
+     *
+     */
+    private static final int PRICE_ONE_BOOK = 8;
 
-    public BooksLot(int numOfBooks) {
-        this.numOfBooks = numOfBooks;
+
+    /**
+     * @param numBooks number of books
+     */
+    public BooksLot(final int numBooks) {
+        this.numOfBooks = numBooks;
         switch (numOfBooks) {
             case 2:
                 this.discountFactor = 0.95;
@@ -28,8 +45,18 @@ public class BooksLot {
         }
     }
 
+    /**
+     * @return price of the lot
+     */
     public double getPrice() {
-        return this.getNumOfBooks() * this.getPRICE_ONE_BOOK() * this.getDiscountFactor();
+        return this.getNumOfBooks() * PRICE_ONE_BOOK * this.getDiscountFactor();
+    }
+
+    /**
+     * @return the price of one book
+     */
+    public double getPriceOfOneBook() {
+        return PRICE_ONE_BOOK;
     }
 
 }
